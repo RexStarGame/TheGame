@@ -754,10 +754,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 1391816655472224016, guid: 461f5daf0c683f548ac248f69353baea, type: 3}
   firePoint: {fileID: 7301210392521085293}
-  bulletSpeed: 1
   currentBulletAmount: 100
   maxBulletAmount: 100
   reloadTime: 1
+  shootCooldown: 4
   detectionRange: 10
   playerLayer:
     serializedVersion: 2
