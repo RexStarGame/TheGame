@@ -5,7 +5,7 @@ public class EnemyBullet : MonoBehaviour
     public float speed = 10f; // Kuglens hastighed
     public int damage = 10; // Hvor meget skade kuglen giver
     public float lifetime = 5f; // Hvor længe kuglen lever, før den destrueres
-
+    private PlayerHealth health;
     private void Start()
     {
         // Ødelæg kuglen efter en vis tid, hvis den ikke rammer noget
@@ -28,7 +28,7 @@ public class EnemyBullet : MonoBehaviour
             
             if(collision.CompareTag("Player"))
             {
-               //fjende spillerens liv
+              health.TakeDamage(5);
             }
             Destroy(gameObject);
         }
