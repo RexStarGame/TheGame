@@ -223,9 +223,9 @@ GameObject:
   - component: {fileID: 304416074}
   - component: {fileID: 304416073}
   - component: {fileID: 304416078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 468882787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -442,13 +442,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1147853781}
     m_Modifications:
+    - target: {fileID: 534013003401627635, guid: bacb7dcf41be97b4a90fb23ea10535fc, type: 3}
+      propertyPath: shootCooldown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5377923266709402957, guid: bacb7dcf41be97b4a90fb23ea10535fc, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718523920063846568, guid: bacb7dcf41be97b4a90fb23ea10535fc, type: 3}
-      propertyPath: evasionChance
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7185798642050143509, guid: bacb7dcf41be97b4a90fb23ea10535fc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1239,7 +1239,7 @@ GameObject:
   - component: {fileID: 1802919539}
   - component: {fileID: 1802919538}
   - component: {fileID: 1802919537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1367,6 +1367,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2078660026}
+    - target: {fileID: 6718523920063846568, guid: bacb7dcf41be97b4a90fb23ea10535fc, type: 3}
+      propertyPath: evasionChance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7185798642050143509, guid: bacb7dcf41be97b4a90fb23ea10535fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.92
