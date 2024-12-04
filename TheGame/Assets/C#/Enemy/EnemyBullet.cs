@@ -4,10 +4,10 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float speed = 10f; // Kuglens hastighed
-    [SerializeField] private int damage = 10; // Hvor meget skade kuglen giver
+    [SerializeField] private int damage = 30; // Hvor meget skade kuglen giver
     [SerializeField] private float lifetime = 5f; // Hvor længe kuglen lever, før den destrueres
 
-    private PlayerHealth health;
+
     private Vector3 direction;
     public void intallized(Vector3 firedirection)
     {
@@ -31,9 +31,11 @@ public class EnemyBullet : MonoBehaviour
         // Tjek om kuglen rammer spilleren
         if (collision.gameObject.layer != 3)
         {  
+
             if(collision.CompareTag("Player"))
             {
-              health.TakeDamage(5);
+              PlayerHealth health = collision.GetComponent<PlayerHealth>();
+              health.TakeDamage(damage);
             }
             Destroy(gameObject);
         }

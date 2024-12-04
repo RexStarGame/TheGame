@@ -8,15 +8,24 @@ public class PlayerHealth : MonoBehaviour
     public Slider slider;
     public int MaxHealth = 100;
     public int CurrentHealth;
+    
 
     private void Start()
     {
         CurrentHealth = MaxHealth;
+        SetMaxHealth(MaxHealth);
     }
 
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
+
+        SetHealth(CurrentHealth);
+        if(CurrentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+   
     }
 
     public void SetMaxHealth(int health)
@@ -24,8 +33,8 @@ public class PlayerHealth : MonoBehaviour
         slider.maxValue = health;
         slider.value = health;
     }
-    public void SetHeath(int heath)
+    public void SetHealth(int health)
     {
-        slider.value = heath;
+        slider.value = health;
     }
 }
