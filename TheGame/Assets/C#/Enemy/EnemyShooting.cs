@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
@@ -12,6 +13,9 @@ public class EnemyShooting : MonoBehaviour
     public float shootCooldown = 1f; // Tid mellem skud (sekunder).
     private bool isReloading = false;
     private float lastShotTime = 0f; // Tidspunkt for sidste skud.
+
+   
+
 
     public float detectionRange = 20f; // Hvor langt fjenden kan "se" spilleren.
     public LayerMask playerLayer; // Lag, der indeholder spilleren.
@@ -46,7 +50,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Skyder!");
+        //Debug.Log("Skyder!");
         currentBulletAmount--;
         lastShotTime = Time.time; // Opdaterer tidspunktet for sidste skud.
 
@@ -69,12 +73,12 @@ public class EnemyShooting : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Genlader...");
+        //Debug.Log("Genlader...");
         yield return new WaitForSeconds(reloadTime);
 
         currentBulletAmount = maxBulletAmount;
         isReloading = false;
-        Debug.Log("Genladning færdig!");
+        //Debug.Log("Genladning færdig!");
     }
 
     private void OnDrawGizmosSelected()

@@ -15,21 +15,29 @@ public class BulletScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("OnCollisionEnter2D kaldt");
-        Debug.Log($"Kugle ramte: {collision.gameObject.name}");
+        //Debug.Log("OnCollisionEnter2D kaldt");
+        //Debug.Log($"Kugle ramte: {collision.gameObject.name}");
 
         // Tjek om kuglen rammer en fjende.
         EnemyHealthBar enemy = collision.gameObject.GetComponent<EnemyHealthBar>();
         if (enemy != null)
         {
-            Debug.Log("EnemyHealthBar fundet på objektet");
+            //Debug.Log("EnemyHealthBar fundet på objektet");
             // Kalder fjendens TakeDamage-funktion og påfører skade.
             enemy.TakeDamage(damage);
-            Debug.Log($"Fjende ramt! {damage} skade påført.");
+
+            //Debug.Log($"Fjende ramt! {damage} skade påført.");
         }
         else
         {
-            Debug.Log("EnemyHealthBar IKKE fundet på objektet");
+            //Debug.Log("EnemyHealthBar IKKE fundet på objektet");
+        }
+        EnemyMovement enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
+
+        if(enemyMovement != null)
+        {
+            enemyMovement.takeDamage(); // fjenden reger på skaden
+
         }
 
         // Ødelæg kuglen ved kollision, uanset hvad den rammer.

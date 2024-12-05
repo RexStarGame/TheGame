@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3886730936616318856}
   - component: {fileID: 4071744203246731680}
   - component: {fileID: -9074377444524943374}
-  - component: {fileID: -83596008840245317}
   - component: {fileID: 6348307331094655667}
-  m_Layer: 0
+  - component: {fileID: 9217366091679325760}
+  m_Layer: 7
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.223, y: -2.256, z: 0}
-  m_LocalScale: {x: 0.18093, y: 0.18093, z: 0.18093}
+  m_LocalScale: {x: 6.0943656, y: 6.0943656, z: 6.0943656}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 666027a6b446e8247aef5c97687fd34d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.920404
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -114,8 +114,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-83596008840245317
-CircleCollider2D:
+--- !u!114 &6348307331094655667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391816655472224016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348afdb761a64944c92bcabc53ccd359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  damage: 30
+  lifetime: 5
+--- !u!60 &9217366091679325760
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,20 +162,33 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.49999997
---- !u!114 &6348307331094655667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391816655472224016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348afdb761a64944c92bcabc53ccd359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  damage: 30
-  lifetime: 5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.014195789, y: -0.03344457}
+      - {x: -0.014489874, y: -0.015736863}
+      - {x: 0.08734303, y: -0.015150387}
+      - {x: 0.10169112, y: -0.016091371}
+      - {x: 0.10597873, y: -0.0140060745}
+      - {x: 0.10524284, y: 0.0057283435}
+      - {x: -0.0061125713, y: 0.005917916}
+      - {x: -0.025329702, y: 0.0051459973}
+      - {x: -0.025074795, y: -0.0040240604}
+      - {x: -0.035373114, y: -0.0046190675}
+      - {x: -0.035705157, y: -0.03792707}
+      - {x: -0.03423128, y: -0.044916146}
+      - {x: -0.02580854, y: -0.04500798}
+      - {x: -0.024718292, y: -0.055073917}
+      - {x: 0.015691582, y: -0.055659387}
+      - {x: 0.025398973, y: -0.053940825}
+      - {x: 0.026069868, y: -0.03833848}
+      - {x: 0.022860415, y: -0.03403645}
+  m_UseDelaunayMesh: 0

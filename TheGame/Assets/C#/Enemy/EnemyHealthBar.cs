@@ -11,25 +11,34 @@ public class EnemyHealthBar : MonoBehaviour
     public Image healthBar; // Health bar UI-element.
     public float evasionChance = 0.2f; // 20% chance for at undvige angreb.
 
+
+    public LootDropper lootDropper; // Reference til LootDropper-scriptet
     // Reference til MissTextController
     public MissTextController missTextController;
     void Start()
     {
+        // Automatisk finde LootDropper-komponenten
+        lootDropper = GetComponent<LootDropper>();
+        if (lootDropper == null)
+        {
+            Debug.LogWarning("LootDropper-komponenten blev ikke fundet på fjenden!");
+        }
         // Sæt fjendens aktuelle liv til maks i starten.
         currentHealth = maxHealth;
         UpdateHealthBar();
+
     }
 
     public void TakeDamage(float playerDamage)
     {
-        Debug.Log($"TakeDamage kaldt med skade: {playerDamage}");
+        //Debug.Log($"TakeDamage kaldt med skade: {playerDamage}");
 
         // Tjek om fjenden undviger angrebet
         float randomValue = Random.Range(0f, 1f);
         if (randomValue < evasionChance)
         {
             // Fjenden undviger angrebet
-            Debug.Log("Fjenden undveg angrebet!");
+            //Debug.Log("Fjenden undveg angrebet!");
             // Vis "Miss" tekst
             if (missTextController != null)
             {
@@ -37,19 +46,19 @@ public class EnemyHealthBar : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("MissTextController er ikke sat i Inspector!");
+                //Debug.LogWarning("MissTextController er ikke sat i Inspector!");
             }
             return;
         }
 
         // Beregn faktisk skade baseret på forsvar.
         float actualDamage = Mathf.Max(playerDamage - defence, 0); // Skade kan ikke være negativ.
-        Debug.Log($"Faktisk skade efter forsvar: {actualDamage}");
+        //Debug.Log($"Faktisk skade efter forsvar: {actualDamage}");
 
         // Reducér fjendens liv.
         currentHealth -= actualDamage;
 
-        Debug.Log($"Fjenden tog {actualDamage} skade. Liv tilbage: {currentHealth}");
+        //Debug.Log($"Fjenden tog {actualDamage} skade. Liv tilbage: {currentHealth}");
 
         // Opdater health bar.
         UpdateHealthBar();
@@ -57,6 +66,7 @@ public class EnemyHealthBar : MonoBehaviour
         // Tjek, om fjenden dør.
         if (currentHealth <= 0)
         {
+          
             Die();
         }
     }
@@ -66,18 +76,31 @@ public class EnemyHealthBar : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.fillAmount = currentHealth / maxHealth;
-            Debug.Log($"Health bar opdateret: {currentHealth / maxHealth}");
+            //Debug.Log($"Health bar opdateret: {currentHealth / maxHealth}");
         }
         else
         {
-            Debug.LogWarning("HealthBar er ikke sat i Inspector!");
+            //Debug.LogWarning("HealthBar er ikke sat i Inspector!");
         }
     }
 
     void Die()
     {
-        Debug.Log("Fjenden er død!");
-        // Fjern fjenden fra spillet.
-        Destroy(gameObject);
+        Debug.Log($"Die() kaldt for {gameObject.name}");
+
+        if (lootDropper != null)
+        {
+            Debug.Log($"LootDropper fundet på {gameObject.name}. Kalder DropLoot()...");
+            lootDropper.DropLoot();
+            Debug.Log("DropLoot() blev kaldt uden fejl.");
+        }
+        else
+        {
+            Debug.LogWarning($"LootDropper er null på {gameObject.name}. Sørg for at tildele det i Inspector!");
+        }
+
+        Debug.Log("Fjenden er død! Nu destrueres fjenden.");
+        Destroy(gameObject); // Fjenden destrueres her
     }
+
 }
