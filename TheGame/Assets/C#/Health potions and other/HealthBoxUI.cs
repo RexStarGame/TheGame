@@ -13,10 +13,13 @@ public class HealthBoxUI : MonoBehaviour
     public TextMeshProUGUI instructionText; // Tekst der viser "Tryk på E"
     public Image keyboardImage; // Billede af tastaturet eller E-tasten
 
+    private bool isPicked = false; // Lokal variabel til at tracke, om dette objekt er samlet op
     private bool isPlayerClose = false;
 
     void Start()
     {
+        isPicked = false;
+
         // Skjul UI fra starten
         uiCanvas.gameObject.SetActive(false);
 
@@ -33,6 +36,13 @@ public class HealthBoxUI : MonoBehaviour
 
     void Update()
     {
+        // Hvis objektet er samlet op, skjul UI permanent
+        if (isPicked)
+        {
+            HideUI();
+            return;
+        }
+
         if (player != null)
         {
             // Beregn afstanden mellem spilleren og HealthBox
@@ -59,9 +69,20 @@ public class HealthBoxUI : MonoBehaviour
         }
     }
 
+    public void MarkAsPicked()
+    {
+        // Kald denne metode, når objektet bliver samlet op
+        isPicked = true; // Marker objektet som samlet op
+        HideUI(); // Sørg for, at UI skjules
+    }
+
     void ShowUI()
     {
-        uiCanvas.gameObject.SetActive(true);
+        // Vis kun UI, hvis objektet ikke er samlet op
+        if (!isPicked)
+        {
+            uiCanvas.gameObject.SetActive(true);
+        }
     }
 
     void HideUI()

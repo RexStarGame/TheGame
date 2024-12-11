@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2868093169312659139}
   - component: {fileID: 8905611276528625823}
   - component: {fileID: 7974113937228128664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: "Tryk p\xE5 E"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7663160459551479318}
   - component: {fileID: 6819700733673238035}
   - component: {fileID: 8932205229530380826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 547569404392744526}
   - component: {fileID: 5704572802186585760}
   - component: {fileID: 45166796338241914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InformationCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ RectTransform:
   m_GameObject: {fileID: 6786867791656994395}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.014029999, y: 0.014029999, z: 0.014029999}
+  m_LocalScale: {x: 0.0027385044, y: 0.0027385044, z: 0.0027385044}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7663160459551479318}
@@ -246,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.03, y: 1.44}
+  m_AnchoredPosition: {x: -0.001, y: 0.302}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &547569404392744526
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: -4581017427012486424}
   - component: {fileID: -3659141270358619695}
   - component: {fileID: 6739403075411446848}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealthBox2
   m_TagString: HealthBox2
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 29.55, y: -3.73, z: 0.23004267}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.883223, y: 4.883223, z: 4.883223}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1770252369652919910}
@@ -389,8 +389,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1284246833, guid: 6b193ad380372ff4aa3661e7e9e66a82, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -432,18 +432,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0024205707, y: 0.00363034}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.2, y: 0.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.20615423, y: 0.2085748}
   m_EdgeRadius: 0
 --- !u!114 &-3659141270358619695
 MonoBehaviour:
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  displayDistance: 10
+  displayDistance: 9.5
   uiCanvas: {fileID: 547569404392744526}
   instructionText: {fileID: 7974113937228128664}
   keyboardImage: {fileID: 8932205229530380826}

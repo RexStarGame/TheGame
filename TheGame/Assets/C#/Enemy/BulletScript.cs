@@ -19,25 +19,34 @@ public class BulletScript : MonoBehaviour
         //Debug.Log($"Kugle ramte: {collision.gameObject.name}");
 
         // Tjek om kuglen rammer en fjende.
-        EnemyHealthBar enemy = collision.gameObject.GetComponent<EnemyHealthBar>();
-        if (enemy != null)
+        if (collision.collider.CompareTag("Enemies"))
         {
-            //Debug.Log("EnemyHealthBar fundet på objektet");
-            // Kalder fjendens TakeDamage-funktion og påfører skade.
-            enemy.TakeDamage(damage);
+            EnemyHealthBar enemy = collision.gameObject.GetComponent<EnemyHealthBar>();
+            if (enemy != null)
+            {
+                //Debug.Log("EnemyHealthBar fundet på objektet");
+                // Kalder fjendens TakeDamage-funktion og påfører skade.
+                enemy.TakeDamage(damage);
 
-            //Debug.Log($"Fjende ramt! {damage} skade påført.");
+                //Debug.Log($"Fjende ramt! {damage} skade påført.");
+            }
+
+            EnemyMovement enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
+            if (enemyMovement != null)
+            {
+                enemyMovement.takeDamage(); // Fjenden reagerer på skaden
+            }
         }
-        else
-        {
-            //Debug.Log("EnemyHealthBar IKKE fundet på objektet");
-        }
-        EnemyMovement enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
 
-        if(enemyMovement != null)
+        // Tjek om kuglen rammer julemanden (bossen)
+        if (collision.collider.CompareTag("Boss"))
         {
-            enemyMovement.takeDamage(); // fjenden reger på skaden
-
+            JulemandensHealth julemanden = collision.gameObject.GetComponent<JulemandensHealth>();
+            if (julemanden != null)
+            {
+                julemanden.TagSkade((int)damage); // Påfør skade til julemanden
+                Debug.Log($"Julemanden tog {damage} skade!");
+            }
         }
 
         // Ødelæg kuglen ved kollision, uanset hvad den rammer.

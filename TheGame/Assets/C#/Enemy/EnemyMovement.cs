@@ -95,12 +95,19 @@ public class EnemyMovement : MonoBehaviour
     }
     private bool IsPlayerInSight()
     {
-        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        // Retning baseret på fjendens bevægelse, ikke skala
+        Vector2 direction = currentPos.position.x > transform.position.x ? Vector2.right : Vector2.left;
+
+        // Udfør Raycast i den beregnede retning
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, viewDistance, playerLayer);
 
-        if(hit.collider != null && hit.collider.CompareTag("Player"))
+        // Debugging: Vis Raycast i Scene View
+        Debug.DrawRay(transform.position, direction * viewDistance, Color.green);
+
+        // Hvis Raycast rammer spilleren, returner true
+        if (hit.collider != null && hit.collider.CompareTag("Player"))
         {
-            return true; 
+            return true;
         }
 
         return false;
@@ -112,7 +119,7 @@ public class EnemyMovement : MonoBehaviour
         isUnderAttack = true;
         animator.SetBool("isRunning", false);
 
-        Invoke(nameof(ResetUnderAttack), 2f); // kalder reset isunderattack efter 2 secunder.
+        Invoke(nameof(ResetUnderAttack), 10f); // kalder reset isunderattack efter 2 secunder.
     }
     private void ResetUnderAttack()
     {

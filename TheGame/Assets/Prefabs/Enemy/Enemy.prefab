@@ -645,9 +645,9 @@ MonoBehaviour:
   firePoint: {fileID: 7301210392521085293}
   currentBulletAmount: 100
   maxBulletAmount: 100
-  reloadTime: 1
-  shootCooldown: 2
-  detectionRange: 10
+  reloadTime: 2
+  shootCooldown: 3
+  detectionRange: 2.4
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -807,6 +807,7 @@ MonoBehaviour:
   - {fileID: 8021745803733840056, guid: 2e8fade8959cd384aa3f4133ac4e0b08, type: 3}
   - {fileID: 8510525137866828069, guid: 1aa1b3c8fcf0ac04482dfaa0d8ba9de6, type: 3}
   - {fileID: 8593317598888050654, guid: 8cf6a15daddb33f478641c9a4bdf0609, type: 3}
+  - {fileID: 1956466537533930902, guid: 89b6280dc8f9dff41881d3635e4e4905, type: 3}
   lootSpawnRadius: 1
 --- !u!1 &8803457354251843186
 GameObject:
@@ -833,7 +834,7 @@ Transform:
   m_GameObject: {fileID: 8803457354251843186}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1671, y: -0.0125, z: 0.0050789304}
+  m_LocalPosition: {x: 0.18, y: -0.0125, z: 0.0050789304}
   m_LocalScale: {x: 1, y: 0.19167, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

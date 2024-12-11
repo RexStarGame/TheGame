@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 4593572962591839849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.014029999, y: 0.014029999, z: 0.014029999}
+  m_LocalScale: {x: 0.0022905376, y: 0.0022905376, z: 0.0022905376}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6830830724639285702}
@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.022, y: 1.298}
+  m_AnchoredPosition: {x: 0.007, y: 0.218}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4079100670790412886
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 7549014991383050917}
   m_Layer: 0
   m_Name: AmmoBox
-  m_TagString: Untagged
+  m_TagString: PistoldRounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,9 +340,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8593317598888050654}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -26.536478, y: -2.1513367, z: 0.23004267}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.2772875, y: 4.2772875, z: 4.2772875}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9113395084850949363}
@@ -389,8 +389,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.11743164, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: -594731315, guid: 6b193ad380372ff4aa3661e7e9e66a82, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f55db12b83a0054bb90c786081ca476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 20
+  ammoAmount: 50
 --- !u!61 &7482653569959297745
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -445,18 +445,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.003352806, y: -0.0011406466}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.2, y: 0.15}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.21544755, y: 0.1673115}
   m_EdgeRadius: 0
 --- !u!114 &7549014991383050917
 MonoBehaviour:
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  displayDistance: 10
+  displayDistance: 9.5
   uiCanvas: {fileID: 4079100670790412886}
   instructionText: {fileID: 7622883939013884587}
   keyboardImage: {fileID: 6002232320493949184}

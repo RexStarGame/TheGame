@@ -10,7 +10,7 @@ public class EnemyHealthBar : MonoBehaviour
     public float defence = 5f; // Forsvarsværdien.
     public Image healthBar; // Health bar UI-element.
     public float evasionChance = 0.2f; // 20% chance for at undvige angreb.
-
+    private bool isDead = false; // Ny variabel til at tracke drab
 
     public LootDropper lootDropper; // Reference til LootDropper-scriptet
     // Reference til MissTextController
@@ -65,8 +65,7 @@ public class EnemyHealthBar : MonoBehaviour
 
         // Tjek, om fjenden dør.
         if (currentHealth <= 0)
-        {
-          
+        {   
             Die();
         }
     }
@@ -76,31 +75,23 @@ public class EnemyHealthBar : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.fillAmount = currentHealth / maxHealth;
-            //Debug.Log($"Health bar opdateret: {currentHealth / maxHealth}");
-        }
-        else
-        {
-            //Debug.LogWarning("HealthBar er ikke sat i Inspector!");
         }
     }
 
     void Die()
     {
-        Debug.Log($"Die() kaldt for {gameObject.name}");
+        // Tjek om fjenden allerede er dræbt
+        if (isDead) return;
+
+        isDead = true; // Marker fjenden som dræbt
+        GameManager.DræbNisse(); // Tæl kun ét drab
 
         if (lootDropper != null)
         {
-            Debug.Log($"LootDropper fundet på {gameObject.name}. Kalder DropLoot()...");
             lootDropper.DropLoot();
-            Debug.Log("DropLoot() blev kaldt uden fejl.");
-        }
-        else
-        {
-            Debug.LogWarning($"LootDropper er null på {gameObject.name}. Sørg for at tildele det i Inspector!");
         }
 
-        Debug.Log("Fjenden er død! Nu destrueres fjenden.");
-        Destroy(gameObject); // Fjenden destrueres her
+        // Destruer fjenden
+        Destroy(gameObject);
     }
-
 }

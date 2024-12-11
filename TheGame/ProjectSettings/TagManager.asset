@@ -8,6 +8,12 @@ TagManager:
   - Grund
   - HealthBox1
   - HealthBox2
+  - BackGrund
+  - Weapon
+  - InventroySlots
+  - Pellet
+  - PistoldRounds
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -19,10 +25,10 @@ TagManager:
   - EnemieBullets
   - PlayerBullets
   - HealthBox
-  - 
-  - 
-  - 
-  - 
+  - InventorySlots
+  - Weaponds
+  - Grund
+  - Bomber
   - 
   - 
   - 

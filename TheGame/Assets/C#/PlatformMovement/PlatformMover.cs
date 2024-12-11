@@ -44,7 +44,7 @@ public class PlatformMover : MonoBehaviour
 
         // Start med at bevæge mod pointA
         currentTarget = pointA;
-        Debug.Log("Starting movement towards Point A");
+        //Debug.Log("Starting movement towards Point A");
     }
 
     void FixedUpdate()
