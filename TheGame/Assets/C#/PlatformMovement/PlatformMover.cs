@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlatformMover : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class PlatformMover : MonoBehaviour
         Vector2 direction = (currentTarget.position - transform.position).normalized;
         Vector2 newPosition = (Vector2)transform.position + direction * speed * Time.fixedDeltaTime;
         rb.MovePosition(newPosition);
+        currentTarget.position = new Vector2(currentTarget.position.x, currentTarget.position.y);
 
         // Debugging: Log position og afstand
         //Debug.Log($"Moving towards {currentTarget.name} - Current Position: {transform.position} - Distance: {Vector2.Distance(transform.position, currentTarget.position)}");
