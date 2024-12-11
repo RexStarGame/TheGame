@@ -81,7 +81,7 @@ public class PlayerShooting : MonoBehaviour
             reloadPrompt.SetActive(currentBulletAmount <= 0 && collectedAmmo > 0 && !isReloading);
         }
         // Skyd, hvis spilleren trykker på "Fire1" og har kugler tilbage.
-        if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)) && currentBulletAmount > 0 && !isReloading)
+        if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)) && currentBulletAmount > 0 && !isReloading && PlayerHealth.isDead == false)
         {
             animator.SetTrigger("IsShoting");
             Shoot();

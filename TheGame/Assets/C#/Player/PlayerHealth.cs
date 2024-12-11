@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting;
 public class PlayerHealth : MonoBehaviour
 {
     public Slider slider;
     public int MaxHealth = 100;
     public int CurrentHealth;
-
+    public static bool isDead = false;
     [SerializeField] private float fallLimit = 50;
     [SerializeField] private int fallDamage = 100;
 
@@ -19,9 +20,13 @@ public class PlayerHealth : MonoBehaviour
     private bool hasFallen = false; // Tilføjet variabel
     // Reference til PlayerHeartCounter
     private PlayerHeartCounter heartCounter;
+    private PlayerShooting spillerenshånd;
+    private ShotgunShooting spillerenshånd2;
     private bool diedFromFall = false;
     private void Start()
     {
+        spillerenshånd = GetComponent<PlayerShooting>();
+        spillerenshånd2 = GetComponent<ShotgunShooting>(); 
         animator = GetComponent<Animator>(); // Hent Animator-komponenten fra GameObjectet
         CurrentHealth = MaxHealth;
         SetMaxHealth(MaxHealth);
@@ -92,6 +97,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private IEnumerator HandleDeath()
     {
+        isDead = true;
         // Afspil død-animation
         if (animator != null)
         {
@@ -125,6 +131,7 @@ public class PlayerHealth : MonoBehaviour
     }
   void Respawn()
 {
+    
     hasFallen = false; // Nulstil fald-status
     // Gendan liv
     CurrentHealth = MaxHealth;
@@ -132,6 +139,7 @@ public class PlayerHealth : MonoBehaviour
 
     // Flyt spilleren til respawn-positionen
     transform.position = respawnPosition;
+    isDead = false;
 
     // Nulstil spillerens hastighed, hvis der er en Rigidbody
     Rigidbody rb = GetComponent<Rigidbody>();

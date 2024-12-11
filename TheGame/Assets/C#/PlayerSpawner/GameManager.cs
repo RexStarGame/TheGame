@@ -23,16 +23,17 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
     }
-
+    
     private void Start()
     {
+        Debug.Log("HEJ");
         // Opdater tekst ved start
         UpdateNisseCounter();
 
@@ -117,13 +118,6 @@ public class GameManager : MonoBehaviour
         {
             winMenu.SetActive(true);
         }
-    }
-
-    public void RestartGame()
-    {
-        Debug.Log("Genstarter spillet...");
-        // Implementér genstart, for eksempel:
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ExitGame()

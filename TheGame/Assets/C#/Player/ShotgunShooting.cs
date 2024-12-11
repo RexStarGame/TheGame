@@ -104,7 +104,7 @@ private float shootCooldown = 1f; // Cooldown-tid i sekunder
             reloadPrompt.SetActive(currentAmmo <= 0 && collectedAmmo > 0 && !isReloading);
         }
         // Skyd, hvis spilleren trykker på skyd-knappen og har ammo tilbage
-        if (Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0 && !isReloading)
+        if (Input.GetButtonDown("Fire1") && canShoot && currentAmmo > 0 && !isReloading && PlayerHealth.isDead == false)
         {
             Animation();
         }
@@ -173,7 +173,7 @@ private float shootCooldown = 1f; // Cooldown-tid i sekunder
       
         // Retning baseret på spillerens orientering
         Vector2 shootDirection = shootPoint.right * transform.lossyScale.x; // Retning påvirket af spillerens skala (venstre/højre)
-        //Animation();
+      
         // Skyd flere pellets
         
         for (int i = 0; i < pelletCount; i++)
