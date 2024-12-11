@@ -11,7 +11,7 @@ public class PlatformMover : MonoBehaviour
     public float speed = 2f; // Hastighed for bevægelsen
 
     [Header("Threshold Settings")]
-    public float switchThreshold = 5f; // Tolerance for afstandstjek (kan justeres i Inspector)
+    public float switchThreshold = 0.1f; // Tolerance for afstandstjek (kan justeres i Inspector)
 
     [Header("Friction Settings")]
     public PhysicsMaterial2D platformMaterial; // Physics Material til friktionsjustering
@@ -54,13 +54,13 @@ public class PlatformMover : MonoBehaviour
         Vector2 direction = (currentTarget.position - transform.position).normalized;
         Vector2 newPosition = (Vector2)transform.position + direction * speed * Time.fixedDeltaTime;
         rb.MovePosition(newPosition);
-        currentTarget.position = new Vector2(currentTarget.position.x, currentTarget.position.y);
+        
 
         // Debugging: Log position og afstand
         //Debug.Log($"Moving towards {currentTarget.name} - Current Position: {transform.position} - Distance: {Vector2.Distance(transform.position, currentTarget.position)}");
 
         // Skift mål, når platformen når tæt nok på currentTarget
-        if (Vector2.Distance(transform.position, currentTarget.position) < switchThreshold)
+        if (Vector2.Distance(transform.position, currentTarget.position) <= switchThreshold)
         {
             Debug.Log($"Reached {currentTarget.name}. Switching target...");
             currentTarget = currentTarget == pointA ? pointB : pointA;

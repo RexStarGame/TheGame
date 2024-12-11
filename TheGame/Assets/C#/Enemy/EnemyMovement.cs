@@ -55,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
             animator.SetBool("isRunning", false);
             return;
         }
-        animator.SetBool("isRuunning", true); //forsætter med at gå frem af 
+        //animator.SetBool("isRuunning", true); //forsætter med at gå frem af 
 
         Vector2 point = currentPos.position;
        

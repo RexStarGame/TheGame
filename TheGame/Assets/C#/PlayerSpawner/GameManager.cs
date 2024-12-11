@@ -6,7 +6,11 @@ public class GameManager : MonoBehaviour
 {
     public int nisserTilbage = 20;
     public GameObject bossObject;
+    public GameObject wall1;
+    public GameObject wall2;   
     public Transform bossSpawnPoint;
+    public Transform wallSpawnpoibt1;
+    public Transform bossSpawnpoibt2;
     public TextMeshProUGUI nisseCounterText; // Reference til TextMeshPro UI
     public GameObject winMenu; // UI-element til vindermenuen
 
@@ -85,6 +89,8 @@ public class GameManager : MonoBehaviour
         bossSpawned = true;
         bossObject.SetActive(true);
         bossObject.transform.position = bossSpawnPoint.position;
+        wall1.transform.position = wallSpawnpoibt1.position;
+        wall2.transform.position = bossSpawnpoibt2.position;
         Debug.Log("Bossen er aktiveret og placeret ved spawn-point!");
 
         // Fjern teksten, når bossen spawner

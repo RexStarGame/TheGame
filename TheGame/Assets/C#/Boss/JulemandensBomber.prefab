@@ -100,14 +100,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ff7c916a6a7e943814663021c4e159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skade: 45
-  eksplosionsRadius: 3
+  skade: 50
+  eksplosionsRadius: 4
   skadeLag:
     serializedVersion: 2
     m_Bits: 64
-  radiusVisningPrefab: {fileID: 8862094024814211295, guid: 5841767d5ac3d9744865713d1b221018, type: 3}
-  visningOffset: 7.5
   Animator: {fileID: 1126801067319011591}
+  skadeForsinkelse: 0.5
+  animationTid: 1.5
+  radiusVisningPrefab: {fileID: 8862094024814211295, guid: 5841767d5ac3d9744865713d1b221018, type: 3}
+  visningOffset: 10
 --- !u!50 &-388296124873578250
 Rigidbody2D:
   serializedVersion: 4
